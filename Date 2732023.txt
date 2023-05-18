@@ -1,0 +1,13 @@
+Date: 27/3/2023
+
+Programs:
+
+1. Write a program to take username and password. Validate them with values present in the database. 
+If they are found correct, show the welcome screen,a screen with error message otherwise.
+
+2. Write a program to:
+- add a new mmployee record (id, firstname, lastname, gender M or F)  to the database. 
+- display list of all the employees.
+
+3. Write a program fetch and display one record at a time on the screen. The screen must have four buttons to navigate
+to first, last, previous and next record.

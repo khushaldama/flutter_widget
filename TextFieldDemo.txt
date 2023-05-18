@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp( MyApp());
+
+// MaterialApp+Scaffold
+class MyApp extends StatelessWidget {
+   MyApp({super.key});
+
+
+  static const String _title = 'TextField Demo';
+
+  @override
+  Widget build(BuildContext context)
+  {
+    Scaffold s = Scaffold(appBar: AppBar(title: const Text(_title)),body: const MyStatefulWidget());
+    MaterialApp m = MaterialApp( title: _title,home: s);
+    return m;
+  }
+}
+
+//Container
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key});
+
+  @override
+  State<MyStatefulWidget> createState() => MyStatefulWidgetState();
+}
+
+class MyStatefulWidgetState extends State<MyStatefulWidget> {
+
+  var username = TextEditingController();
+  var password = TextEditingController();
+  @override
+ Widget build(BuildContext context)
+  {
+    TextField t1 =  TextField(controller: username, decoration: const InputDecoration(border:OutlineInputBorder(borderRadius: BorderRadius.all(Radius.zero))));
+    TextField t2 =  TextField(obscureText: true,controller: password, decoration: const InputDecoration(border:OutlineInputBorder(borderRadius: BorderRadius.all(Radius.zero))));
+    final ButtonStyle style =  ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    ElevatedButton btn = ElevatedButton(style: style,onPressed: (){
+      String u = username.text;
+      String p = password.text;
+
+      print("Username = $u");
+      print("Password = $p");
+    },child: const Text('Log-in'));
+    Column c = Column(mainAxisSize: MainAxisSize.min,children: <Widget>[t1,const SizedBox(height: 30),t2,btn]);
+
+    return Center(child: c);
+  }
+
+}
